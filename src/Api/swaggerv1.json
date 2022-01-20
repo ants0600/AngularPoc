@@ -1,0 +1,643 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "Sample Restful API 1.0"
+  },
+  "host": "localhost:44351",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/GetAllCars": {
+      "get": {
+        "tags": [
+          "Car"
+        ],
+        "summary": "API method to get all cars from database",
+        "operationId": "GetAllCars",
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "api-version",
+            "in": "query",
+            "description": "The requested API version",
+            "type": "string",
+            "default": "1.0"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Car"
+              }
+            }
+          },
+          "500": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        }
+      }
+    },
+    "/GetCarById": {
+      "get": {
+        "tags": [
+          "Car"
+        ],
+        "summary": "API method get car by id",
+        "operationId": "GetCarById",
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "searched car id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "description": "The requested API version",
+            "type": "string",
+            "default": "1.0"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Car"
+            }
+          },
+          "500": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        }
+      }
+    },
+    "/GetCarByName": {
+      "get": {
+        "tags": [
+          "Car"
+        ],
+        "summary": "API method get car by name",
+        "operationId": "GetCarByName",
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "searched car name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "description": "The requested API version",
+            "type": "string",
+            "default": "1.0"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Car"
+            }
+          },
+          "500": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        }
+      }
+    },
+    "/AddCar": {
+      "post": {
+        "tags": [
+          "Car"
+        ],
+        "summary": "API method to insert car into database",
+        "operationId": "AddCar",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "inserted",
+            "in": "body",
+            "description": "inserted car data",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Car"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "description": "The requested API version",
+            "type": "string",
+            "default": "1.0"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UpdateCarResponse"
+            }
+          },
+          "500": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        }
+      }
+    },
+    "/UpdateCar": {
+      "post": {
+        "tags": [
+          "Car"
+        ],
+        "summary": "API method to update a specific car by id",
+        "operationId": "UpdateCar",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "updated",
+            "in": "body",
+            "description": "car data to be updated",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Car"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "description": "The requested API version",
+            "type": "string",
+            "default": "1.0"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UpdateCarResponse"
+            }
+          },
+          "500": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        }
+      }
+    },
+    "/DeleteCarByIds": {
+      "post": {
+        "tags": [
+          "Car"
+        ],
+        "summary": "delete cars by multiple ids",
+        "operationId": "DeleteCarByIds",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "format": "int32",
+                "type": "integer"
+              }
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "description": "The requested API version",
+            "type": "string",
+            "default": "1.0"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "500": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        }
+      }
+    },
+    "/CalculateDiscount": {
+      "post": {
+        "tags": [
+          "Car"
+        ],
+        "summary": "API method to calculate discount of buying a specific car with specific quantity",
+        "operationId": "CalculateDiscount",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "description": "Car purchase data",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CalculateDiscountRequest"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "description": "The requested API version",
+            "type": "string",
+            "default": "1.0"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CalculateDiscountResponse"
+            }
+          },
+          "500": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        }
+      }
+    },
+    "/AddContactUs": {
+      "post": {
+        "tags": [
+          "Contact"
+        ],
+        "summary": "API method to insert car into database",
+        "operationId": "AddContactUs",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "inserted",
+            "in": "body",
+            "description": "inserted car data",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContactUsItem"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "description": "The requested API version",
+            "type": "string",
+            "default": "1.0"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "500": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        }
+      }
+    },
+    "/Plus": {
+      "post": {
+        "tags": [
+          "SimpleMath"
+        ],
+        "summary": "Ex: one plus one equals two.\r\n                <br></br>\r\n                Satu tambah satu sama dengan dua.\r\n                <br></br>\r\n                比如： 一加一等于二。",
+        "operationId": "Plus",
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "a",
+            "in": "query",
+            "description": "first number",
+            "required": true,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "b",
+            "in": "query",
+            "description": "second number",
+            "required": true,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "description": "The requested API version",
+            "type": "string",
+            "default": "1.0"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          },
+          "500": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        }
+      }
+    },
+    "/Minus": {
+      "post": {
+        "tags": [
+          "SimpleMath"
+        ],
+        "summary": "Ex: one minus one equals zero.\r\n                <br></br>\r\n                Satu dikurang satu sama dengan dua.\r\n                <br></br>\r\n                比如： 一减一等于零。",
+        "operationId": "Minus",
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "a",
+            "in": "query",
+            "description": "first number",
+            "required": true,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "b",
+            "in": "query",
+            "description": "second number",
+            "required": true,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "description": "The requested API version",
+            "type": "string",
+            "default": "1.0"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          },
+          "500": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Object": {
+      "type": "object"
+    },
+    "Car": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Year": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Price": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "UpdateCarResponse": {
+      "type": "object",
+      "properties": {
+        "Error": {
+          "enum": [
+            "None",
+            "CarNameNotFound",
+            "DuplicateName",
+            "CarIdNotFound"
+          ],
+          "type": "string",
+          "readOnly": true
+        },
+        "Updated": {
+          "$ref": "#/definitions/Car",
+          "readOnly": true
+        },
+        "Status": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "ErrorMessage": {
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "CalculateDiscountRequest": {
+      "type": "object",
+      "properties": {
+        "CarName": {
+          "type": "string"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "CalculateDiscountResponse": {
+      "type": "object",
+      "properties": {
+        "Discount": {
+          "format": "double",
+          "type": "number",
+          "readOnly": true
+        },
+        "Request": {
+          "$ref": "#/definitions/CalculateDiscountRequest",
+          "readOnly": true
+        },
+        "CarData": {
+          "$ref": "#/definitions/Car",
+          "readOnly": true
+        },
+        "AfterDiscount": {
+          "format": "double",
+          "type": "number",
+          "readOnly": true
+        },
+        "Error": {
+          "enum": [
+            "None",
+            "CarNameNotFound",
+            "DuplicateName",
+            "CarIdNotFound"
+          ],
+          "type": "string",
+          "readOnly": true
+        },
+        "ErrorMessage": {
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "ContactUsItem": {
+      "type": "object",
+      "properties": {
+        "Email": {
+          "type": "string"
+        },
+        "FullName": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

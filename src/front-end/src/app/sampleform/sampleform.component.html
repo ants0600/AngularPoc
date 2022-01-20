@@ -1,0 +1,47 @@
+<!--todo: auto change property, auto adjust property displays-->
+<div class="box col-md-8 px-3 py-3">
+  <form action="javascript:void(0);" class="needs-validation">
+    <div class="mb-3 mt-3">
+      <label for="fullName">Full Name*:</label>
+      <input type="text" required="" class="form-control" id="fullName" placeholder="Enter full name" name="fullName" />
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="email">Email*:</label>
+      <input type="email" required="" class="form-control" id="email" placeholder="Enter email" name="email" />
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field with correct email. Ex: example@domain</div>
+    </div>
+    <div class="mb-3">
+      <label for="message">Message*:</label>
+      <textarea required="" class="form-control" name="message" id="message" placeholder="Enter message"></textarea>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field</div>
+    </div>
+    <div class="form-check mb-3">
+      <label class="form-check-label">
+
+      </label>
+      <input required="" class="form-check-input" type="checkbox" name="agree" id="agree">
+      I agree with all terms and conditions
+      <div class="invalid-feedback">Please fill out this field</div>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="submit()">Submit</button>
+  </form>
+  <!--success message-->
+  <div id="success" style="display: none;">
+    <h1>Submission is successful</h1>
+    <p>
+      Our customer service will follow up this message and get back to you
+    </p>
+  </div>
+  <!--fail message-->
+  <div id="fail" style="display: none;">
+    <h1>There is problem with the last submission</h1>
+    <p>
+      Please try again
+    </p>
+  </div>
+
+</div>

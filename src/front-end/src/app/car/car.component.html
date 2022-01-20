@@ -1,0 +1,34 @@
+<!--car detail-->
+<div class="px-3 py-3 bg-dark text-white">
+  <div class="border px-3 py-3 rounded">
+    <h2>Car Component</h2>
+    <form>
+      <!--data-->
+      <div class="row">
+        <!--name-->
+        <div class="col-md-4">
+          <label class="px-1">Name *</label>
+          <input type="text" id="carId" value="{{Car.Name}}" readonly="readonly" />
+        </div>
+        <!--year-->
+        <div class="col-md-3">
+          <label class="px-1">Year *</label>
+          <input type="number" id="carYear" value="{{Car.Year}}" readonly="readonly" class="input-small" />
+        </div>
+        <!--price-->
+        <div class="col-md-3">
+          <label class="px-1">Price *</label>
+          <input type="number" id="carPrice" value="{{Car.Price}}" readonly="readonly" class="input-medium" />
+        </div>
+      </div>
+      <!--buttons-->
+      <div>
+        <a href="javascript:void(0);" (click)="reset(false)" class="px-2 btResetCar">Reset</a>
+        <a href="javascript:void(0);" (click)="prepareNew()" class="px-2 btNewCar">New</a>
+        <a href="javascript:void(0);" (click)="prepareEdit()" class="px-2 btEditCar">Edit</a>
+        <a href="javascript:void(0);" (click)="save()" class="px-2 hide btSaveCar">Save</a>
+      </div>
+
+    </form>
+  </div>
+</div>

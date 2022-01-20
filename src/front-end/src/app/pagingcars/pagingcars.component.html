@@ -1,0 +1,65 @@
+<div class="bg-dark text-white px-3 py-3">
+  <h1>
+    Car List with Paging Functions
+  </h1>
+  <!--fields-->
+  <div class="border py-3 px-3">
+    <div class="row">
+      <div class="col-md-1">
+        <a href="javascript:void(0);" (click)="refreshAll()">Refresh</a>
+      </div>
+      <!--page index-->
+      <div class="col-md-1">
+        <label class="">Page</label>
+      </div>
+      <div class="col-md-1">
+        <select id="cbPageIndex" (change)="changePageIndex()">
+          <option value="{{i}}" *ngFor="let item of pageIndexList; index as i">{{item}}</option>
+        </select>
+      </div>
+      <!--sort by-->
+      <div class="col-md-1">
+        <label class="">Sort By</label>
+      </div>
+      <div class="col-md-1">
+        <select id="cbSortBy" (change)="changeSortBy()">
+          <option value="{{item}}" *ngFor="let item of sortByList; index as i">{{item}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <!--table-->
+  <div class="border py-3 px-3 my-3">
+    <div class="row border bg-secondary">
+      <!--columns-->
+      <div class="col-md-1">
+        No
+      </div>
+      <div class="col-md-4">
+        Name
+      </div>
+      <div class="col-md-2">
+        Price
+      </div>
+      <div class="col-md-1">
+        Year
+      </div>
+    </div>
+    <!--rows-->
+    <div data-id="row{{item.Id}}" class="row border" *ngFor="let item of carList; index as i">
+      <div class="col-md-1">
+        {{i + startRowNumber}}
+      </div>
+      <div class="col-md-4">
+        {{item.Name}}
+      </div>
+      <div class="col-md-2">
+        {{item.Price}}
+      </div>
+      <div class="col-md-1">
+        {{item.Year}}
+      </div>
+    </div>
+  </div>
+
+</div>

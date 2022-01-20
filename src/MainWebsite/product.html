@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+  <div>
+    <h1>
+      Products
+    </h1>
+    <div id="div1"></div>
+  </div>
+  <script language="javascript" type="text/javascript">
+
+    function solution(text) {
+      var textLength = text.length;
+      if (textLength >= 400000) {
+        return 799999;
+      }
+
+      //get total
+      var s = 0;
+      var firstChar = text.charAt(0);
+      var firstNumber = parseInt(firstChar);
+      for (var i = 0; i < textLength; ++i) {
+        var charAt = text.charAt(i);
+        var number = parseInt(charAt);
+        var pow = firstNumber === 0 ? i + 1 : i;
+
+        if (number === 1) {
+          s += Math.pow(2, pow);
+        }
+      }
+
+      //counter until zero
+      return counterUntilZero(s, 1);
+    }
+
+    function counterUntilZero(value, n) {
+
+      var s = 0;
+      while (value > 0) {
+        if (value % 2 === 0) {
+          value /= 2;
+        } else {
+          value -= 1;
+        }
+
+        s++;
+      }
+      return s;
+    }
+
+
+    var w = solution("111");
+    alert(w);
+
+    var j = 0;
+    for (j = 0; j <= 500000; ++j) {
+
+    }
+    console.log("xxxx j" + j);
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+{
+  "OriginalResponse": {
+    "coord": {
+      "lon": 106.8451,
+      "lat": -6.2146
+    },
+    "weather": [
+      {
+        "main": "Clouds",
+        "description": "overcast clouds"
+      }
+    ],
+    "visibility": 10000,
+    "main": {
+      "temp": 298.1,
+      "humidity": 82
+    },
+    "wind": {
+      "speed": 2.78,
+      "deg": 261
+    },
+    "dt": 1642696700,
+    "name": "Jakarta"
+  },
+  "WeatherData": {
+    "Latitude": -6.2146,
+    "Longitude": 106.8451,
+    "UtcDateTime": "2022-01-20T23:38:20+07:00",
+    "UtcDateTimeLongFormat": "20 Jan 2022 23:38:20",
+    "WindDegree": 261,
+    "WindSpeed": 2.78,
+    "Visibility": 10000,
+    "Farenheit": 298.1,
+    "Celcius": 147.83333333333334,
+    "SkyConditions": "overcast clouds",
+    "CityName": "Jakarta"
+  },
+  "ErrorCode": 0,
+  "ErrorMessage": ""
+}

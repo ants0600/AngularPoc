@@ -1,0 +1,50 @@
+<!--car detail-->
+<app-car [activeCarId]="carId"></app-car>
+
+<!--car list-->
+<div class="bg-dark text-white px-3 py-3">
+  <div class="border rounded px-3 px-3">
+    <h1>Cars</h1>
+    <div>
+      <a class="btRefreshCar" (click)="refreshData(false)" href="javascript:void(0);">Refresh</a>
+    </div>
+    <div class="bg-secondary border my-3">
+      <!--columns-->
+      <div class="row mx-0">
+        <!--name-->
+        <div class="col-md-3">Name</div>
+        <!--year-->
+        <div class="col-md-1">Year</div>
+        <!--price-->
+        <div class="col-md-2">Price</div>
+        <!--action-->
+        <div class="col-md-1">Action</div>
+      </div>
+      <!--rows-->
+      <div data-id="row{{item.Id}}" class="row bg-dark border-top mx-0" *ngFor="let item of carList; index as i">
+        <!--name-->
+        <div class="col-md-3">
+          <a class="link-button"
+             data-id="link{{item.Id}}"
+             routerLink="car/{{item.Name}}"
+             (click)="setActiveCar(item.Id)">
+            {{item.Name}}
+          </a>
+        </div>
+        <!--year-->
+        <div class="col-md-1">
+          {{item.Year}}
+        </div>
+        <!--price-->
+        <div class="col-md-2">
+          {{item.Price}}
+        </div>
+        <!--action-->
+        <div class="col-md-1">
+          <a (click)="deleteCar(item.Id)" href="javascript:void(0);">Delete</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="container-fluid p-5 bg-primary text-white text-center">
+  <!--todo: consume property in model-->
+  <h1>{{title}}</h1>
+  <ul>
+    <li *ngFor="let i of images">
+      <img src="{{ i.url }}" alt="" />
+    </li>
+  </ul>
+</div>

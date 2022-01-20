@@ -1,0 +1,20 @@
+{
+  "/api1/*": {
+    "target": "http://localhost:5000",
+    "secure": false,
+    "pathRewrite": {
+      "^/api1": ""
+    },
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  "/api2/*": {
+    "target": "http://localhost:5000",
+    "secure": false,
+    "pathRewrite": {
+      "^/api2": ""
+    },
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

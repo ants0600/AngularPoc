@@ -1,0 +1,77 @@
+<div class="bg-dark text-white px-3 py-3">
+  <h1>
+    City Weather
+  </h1>
+  <!--form-->
+  <div class="border rounded col-md-8 px-3 py-3">
+    <a href="javascript:void(0);" (click)="refreshAll()">Refresh</a>
+    <!--countries-->
+    <div class="mb-3 mt-3">
+      <label for="country">Country:</label>
+      <select id="country" (change)="changeCountry()">
+        <option value="{{item.Name}}" *ngFor="let item of countries; index as i">{{item.Name}}</option>
+      </select>
+    </div>
+    <!--city-->
+    <div class="mb-3 mt-3">
+      <label for="city">City:</label>
+      <select id="city" (change)="changeCity()">
+        <option value="{{item.Name}}" *ngFor="let item of cities; index as i">{{item.Name}}</option>
+      </select>
+    </div>
+    <!--button-->
+    <button type="submit" class="btn btn-primary" (click)="submit()">Submit</button>
+  </div>
+  <!--result-->
+  <h2>Result</h2>
+  <div class="border rounded col-md-8 px-3 py-3">
+    <div class="row">
+      <div class="col-md-3">
+        <label>City</label>
+        <input type="text" class="form-control" id="cityName" readonly="readonly" />
+      </div>
+      <div class="col-md-3">
+        <label>Latitude</label>
+        <input type="text" class="form-control" id="latitude" readonly="readonly" />
+      </div>
+      <div class="col-md-3">
+        <label>Longitude</label>
+        <input type="text" class="form-control" id="longitude" readonly="readonly" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <label>Date</label>
+        <input type="text" class="form-control" id="dateTime" readonly="readonly" />
+      </div>
+      <div class="col-md-3">
+        <label>Wind Degree</label>
+        <input type="text" class="form-control" id="windDegree" readonly="readonly" />
+      </div>
+      <div class="col-md-3">
+        <label>Wind Speed</label>
+        <input type="text" class="form-control" id="windSpeed" readonly="readonly" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <label>Visibility</label>
+        <input type="text" class="form-control" id="visibility" readonly="readonly" />
+      </div>
+      <div class="col-md-3">
+        <label>Farenheit</label>
+        <input type="text" class="form-control" id="farenheit" readonly="readonly" />
+      </div>
+      <div class="col-md-3">
+        <label>Celcius</label>
+        <input type="text" class="form-control" id="celcius" readonly="readonly" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-5">
+        <label>Sky Conditions</label>
+        <input type="text" class="form-control" id="skyConditions" readonly="readonly" />
+      </div>
+    </div>
+  </div>
+</div>

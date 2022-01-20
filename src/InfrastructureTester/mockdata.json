@@ -1,0 +1,26 @@
+[
+	{
+		"Id": 1,
+		"Name": "BMW 1999",
+		"Year": 1999,
+		"Price": 90000
+	},
+	{
+		"Id": 3,
+		"Name": "honda city 2005",
+		"Year": 2005,
+		"Price": 200000
+	},
+	{
+		"Id": 2,
+		"Name": "Karimun 2003",
+		"Year": 2003,
+		"Price": 10000
+	},
+	{
+		"Id": 4,
+		"Name": "Toyota Yaris 2005",
+		"Year": 2005,
+		"Price": 400000
+	}
+]

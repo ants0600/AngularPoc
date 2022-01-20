@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DotNetCoreApi</name>
+    </assembly>
+    <members>
+        <member name="T:DotNetCoreApi.Controllers.CarController">
+            <summary>
+            API methods about cars, all operations about car data
+            </summary>
+        </member>
+        <member name="M:DotNetCoreApi.Controllers.CarController.GetCars">
+            <summary>
+            get all cars from database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetCoreApi.Controllers.CarController.GetCarByName(System.String)">
+            <summary>
+                API method get car by name
+            </summary>
+            <param name="name">
+                searched car name
+            </param>
+            <returns>
+                found car full data
+            </returns>
+        </member>
+        <member name="M:DotNetCoreApi.Controllers.CarController.AddCar(Domain.Model.Car)">
+            <summary>
+            insert car to database
+            </summary>
+            <param name="inserted"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetCoreApi.Controllers.CarController.UpdateCarById(Domain.Model.Car)">
+            <summary>
+            update car by id
+            </summary>
+            <param name="updated"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetCoreApi.Controllers.CarController.GetCarById(System.Int32)">
+            <summary>
+            get car by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetCoreApi.Controllers.CarController.DeleteCars(System.Int32[])">
+            <summary>
+            delete cars by ids
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetCoreApi.Controllers.CarController.GetCarsByPageIndex(System.Int32,System.Int32,Domain.Model.EnumFields,System.Boolean)">
+            <summary>
+            get cars by page index
+            </summary>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="orderBy">
+            0: id, 1: Name, 2: Price, 3: Year
+            </param>
+            <returns></returns>
+            <param name="isAscending"></param>
+        </member>
+        <member name="M:DotNetCoreApi.Controllers.CarController.GetCarPageCount(System.Int32)">
+            <summary>
+            get page count by page size
+            </summary>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DotNetCoreApi.Controllers.ContactUsController">
+            <summary>
+            api for contact us operation
+            </summary>
+        </member>
+        <member name="M:DotNetCoreApi.Controllers.ContactUsController.AddContactUs(Domain.Model.ContactUsItem)">
+            <summary>
+            add contact us item to database
+            </summary>
+            <param name="inserted"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DotNetCoreApi.Controllers.CustomerController">
+            <summary>
+            API methods about cars, all operations about car data
+            </summary>
+        </member>
+        <member name="M:DotNetCoreApi.Controllers.CustomerController.GetAllCustomers">
+            <summary>
+            get all customers from db
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetCoreApi.Controllers.CustomerController.GetCustomersByName(System.String)">
+            <summary>
+            filter customer list by name
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetCoreApi.Controllers.CustomerController.Insert(Domain.Model.Customer)">
+            <summary>
+            insert 1 row into db
+            </summary>
+            <param name="inserted"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DotNetCoreApi.Controllers.LocationController">
+            <summary>
+            api for location. Ex: get cities, get countries
+            </summary>
+        </member>
+        <member name="M:DotNetCoreApi.Controllers.LocationController.GetCitiesByCountryName(System.String)">
+            <summary>
+            get cities by country id, read from database
+            </summary>
+            <param name="country"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNetCoreApi.Controllers.LocationController.GetCountries">
+            <summary>
+            get countries
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DotNetCoreApi.Controllers.WeatherController">
+            <summary>
+            api for contact us operation
+            </summary>
+        </member>
+        <member name="M:DotNetCoreApi.Controllers.WeatherController.GetWeatherByCity(System.String)">
+            <summary>
+            get weather by city, will invoke external API.
+            </summary>
+            <param name="city"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DotNetCoreApi.Models.Book">
+            <summary>
+            domain class for book object
+            </summary>
+        </member>
+        <member name="M:DotNetCoreApi.Models.DependencyInjector.RegisterTypes(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            todo: bind interfaces to concrete classes here
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+        </member>
+    </members>
+</doc>

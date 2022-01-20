@@ -1,0 +1,28 @@
+.box {
+  border-style: double;
+  border-width: 1px;
+}
+
+.link-button {
+  color: lightblue;
+}
+
+.hide {
+  display: none;
+}
+
+input[readonly] {
+  background-color: lightsteelblue;
+}
+
+.input-small {
+  width: 30%;
+}
+
+.input-medium {
+  width: 50%;
+}
+
+.weather-label {
+  min-width: 50px;
+}
