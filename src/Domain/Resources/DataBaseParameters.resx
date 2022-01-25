@@ -159,8 +159,17 @@
   <data name="price" xml:space="preserve">
     <value>@price</value>
   </data>
+  <data name="productId" xml:space="preserve">
+    <value>@productId</value>
+  </data>
+  <data name="quantity" xml:space="preserve">
+    <value>@quantity</value>
+  </data>
   <data name="text" xml:space="preserve">
     <value>@text</value>
+  </data>
+  <data name="userName" xml:space="preserve">
+    <value>@userName</value>
   </data>
   <data name="version" xml:space="preserve">
     <value>@version</value>

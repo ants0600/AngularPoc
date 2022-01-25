@@ -76,6 +76,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\AppSettings.cs" />
+    <Compile Include="Model\Cart.cs" />
+    <Compile Include="Model\CartItem.cs" />
     <Compile Include="Model\City.cs" />
     <Compile Include="Model\Country.cs" />
     <Compile Include="Model\Customer.cs" />
@@ -83,7 +85,9 @@
     <Compile Include="Model\Exception\CityNotFoundException.cs" />
     <Compile Include="Model\ICarController.cs" />
     <Compile Include="Model\IContactUsController.cs" />
+    <Compile Include="Model\Product.cs" />
     <Compile Include="Model\ProductItem.cs" />
+    <Compile Include="Model\Request\AddCartItemRequest.cs" />
     <Compile Include="Model\Response\OpenWeatherCoordinate.cs" />
     <Compile Include="Model\Response\OpenWeatherData.cs" />
     <Compile Include="Model\Response\OpenWeatherMain.cs" />
@@ -91,8 +95,10 @@
     <Compile Include="Model\Response\OpenWeatherWind.cs" />
     <Compile Include="Model\Response\WeatherResponse.cs" />
     <Compile Include="Model\WeatherData.cs" />
+    <Compile Include="Repository\ICartRepository.cs" />
     <Compile Include="Repository\ICustomerRepository.cs" />
     <Compile Include="Repository\ILocationRepository.cs" />
+    <Compile Include="Repository\IProductRepository.cs" />
     <Compile Include="Repository\IWeatherRepository.cs" />
     <Compile Include="Resources\DataBaseParameters.Designer.cs">
       <AutoGen>True</AutoGen>

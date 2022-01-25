@@ -2,6 +2,12 @@
 {
 	public class ConstantValues
 	{
+		public const string QUERY_INSERT_CART_ITEM = @"
+EXEC dbo.usp_InsertCart @userName = @userName, @productId = @productId,
+    @quantity = @quantity
+
+
+";
 		public const double FARENHEIT_TO_CELCIUS = 0.556;
 		public const string ROWS_XML_FORMAT = "<rows>{0}</rows>";
 
@@ -125,8 +131,57 @@ MESSAGE: {1}
 STACK TRACE: {2} 
 ";
 
-		public static string FORMAT_DD_MMM_YYYY_HH_MM_SS = "dd MMM yyyy HH:mm:ss";
+		public const string FORMAT_DD_MMM_YYYY_HH_MM_SS = "dd MMM yyyy HH:mm:ss";
+		public const string QUERY_SELECT_PRODUCTS = @"
+SELECT  Id ,
+        Code ,
+        Name ,
+        Price ,
+        UnitId ,
+        MobileCardImageUrl ,
+        UnitName
+FROM    dbo.ProductView
+";
+
+		public const string QUERY_GET_PRODUCT_BY_ID = @"
+SELECT TOP 1
+        Id ,
+        Code ,
+        Name ,
+        Price ,
+        UnitId ,
+        MobileCardImageUrl ,
+        UnitName
+FROM    dbo.ProductView WITH ( NOLOCK )
+WHERE   Id = @id
+";
 
 		public const string COMMA = ", ";
+
+		public const string QUERY_GET_CART_DETAILS_BY_USER_NAME = @"
+SELECT  Id ,
+        ProductId ,
+        CartId ,
+        UserName ,
+        Quantity ,
+        Code ,
+        Name ,
+        Price ,
+        UnitId ,
+        UnitName ,
+        MobileCardImageUrl ,
+        TotalPrice
+FROM    dbo.CartDetailView
+WHERE   UserName = @id
+
+";
+
+		public const string QUERY_GET_CART_TOTAL_PRICE_BY_USER_NAME = @"
+SELECT  SUM(a.TotalPrice)
+FROM    CartDetailView a WITH ( NOLOCK )
+WHERE   a.UserName = @id
+
+
+";
 	}
 }

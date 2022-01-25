@@ -65,7 +65,7 @@ namespace Infrastructure.Extensions
 			{
 				return values;
 			}
-			
+
 			values = result.ToList();
 			return values;
 		}
@@ -128,6 +128,13 @@ namespace Infrastructure.Extensions
 			//get first element
 			var value = values[0];
 			return value;
+		}
+
+		public T ExecuteScalar<T>(IDbConnection cn, string query, Dictionary<string, object> parameters,
+			CommandType commandType, int commandTimeout,
+			bool isBuffered)
+		{
+			return cn.ExecuteScalar<T>(query, parameters, null, commandTimeout, commandType);
 		}
 	}
 }

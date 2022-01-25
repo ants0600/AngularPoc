@@ -224,6 +224,8 @@
     <Compile Include="App_Start\RemoveVerbsFilter.cs" />
     <Compile Include="Controllers\CarController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\SimpleMathController.cs" />
     <Compile Include="Models\AutofacInjectorConfig.cs" />
     <Compile Include="Models\ConnectionManager.cs" />

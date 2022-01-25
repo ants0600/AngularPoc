@@ -360,6 +360,152 @@
         }
       }
     },
+    "/GetCartItemsByUserName": {
+      "get": {
+        "tags": [
+          "Cart"
+        ],
+        "summary": "get cart items from database by user name",
+        "operationId": "GetCartItemsByUserName",
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "userName",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "description": "The requested API version",
+            "type": "string",
+            "default": "1.0"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CartItem"
+              }
+            }
+          },
+          "500": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        }
+      }
+    },
+    "/GetCartTotalPriceByUserName": {
+      "get": {
+        "tags": [
+          "Cart"
+        ],
+        "summary": "get cart total price from database by user name",
+        "operationId": "GetCartTotalPriceByUserName",
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "userName",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "description": "The requested API version",
+            "type": "string",
+            "default": "1.0"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          },
+          "500": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        }
+      }
+    },
+    "/AddCartItem": {
+      "post": {
+        "tags": [
+          "Cart"
+        ],
+        "summary": "insert a cart item to database",
+        "operationId": "AddCartItem",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "description": "inserted data",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddCartItemRequest"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "description": "The requested API version",
+            "type": "string",
+            "default": "1.0"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "500": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        }
+      }
+    },
     "/AddContactUs": {
       "post": {
         "tags": [
@@ -403,6 +549,92 @@
             "description": "OK",
             "schema": {
               "type": "boolean"
+            }
+          },
+          "500": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        }
+      }
+    },
+    "/GetAllProducts": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "get all products from database",
+        "operationId": "GetAllProducts",
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "api-version",
+            "in": "query",
+            "description": "The requested API version",
+            "type": "string",
+            "default": "1.0"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Product"
+              }
+            }
+          },
+          "500": {
+            "description": "InternalServerError",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        }
+      }
+    },
+    "/GetProductById": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "get all products from database",
+        "operationId": "GetProductById",
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "description": "The requested API version",
+            "type": "string",
+            "default": "1.0"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Product"
             }
           },
           "500": {
@@ -557,7 +789,13 @@
             "None",
             "CarNameNotFound",
             "DuplicateName",
-            "CarIdNotFound"
+            "CarIdNotFound",
+            "CarNameIsEmpty",
+            "CarYearIsInvalid",
+            "CarPriceIsInvalid",
+            "UrlNotReachable",
+            "CityNameIsEmpty",
+            "CityNotFound"
           ],
           "type": "string",
           "readOnly": true
@@ -614,7 +852,13 @@
             "None",
             "CarNameNotFound",
             "DuplicateName",
-            "CarIdNotFound"
+            "CarIdNotFound",
+            "CarNameIsEmpty",
+            "CarYearIsInvalid",
+            "CarPriceIsInvalid",
+            "UrlNotReachable",
+            "CityNameIsEmpty",
+            "CityNotFound"
           ],
           "type": "string",
           "readOnly": true
@@ -622,6 +866,63 @@
         "ErrorMessage": {
           "type": "string",
           "readOnly": true
+        }
+      }
+    },
+    "CartItem": {
+      "type": "object",
+      "properties": {
+        "ProductId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TotalPrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "Id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "Code": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Price": {
+          "format": "double",
+          "type": "number"
+        },
+        "UnitId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "MobileCardImageUrl": {
+          "type": "string"
+        },
+        "UnitName": {
+          "type": "string"
+        }
+      }
+    },
+    "AddCartItemRequest": {
+      "type": "object",
+      "properties": {
+        "UserName": {
+          "type": "string"
+        },
+        "ProductId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "Quantity": {
+          "format": "int32",
+          "type": "integer"
         }
       }
     },
@@ -635,6 +936,35 @@
           "type": "string"
         },
         "Message": {
+          "type": "string"
+        }
+      }
+    },
+    "Product": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "Code": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Price": {
+          "format": "double",
+          "type": "number"
+        },
+        "UnitId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "MobileCardImageUrl": {
+          "type": "string"
+        },
+        "UnitName": {
           "type": "string"
         }
       }

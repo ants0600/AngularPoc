@@ -30,5 +30,10 @@ namespace Domain.Service
 			CommandType commandType, int commandTimeout,
 			bool isBuffered)
 			where T : class, new();
+
+		T ExecuteScalar<T>(IDbConnection cn, string query, Dictionary<string, object> parameters,
+			CommandType commandType, int commandTimeout,
+			bool isBuffered);
+
 	}
 }
